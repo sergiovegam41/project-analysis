@@ -1,0 +1,16 @@
+[26-Oct-2022 00:24:01 America/New_York] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php on line 8
+[26-Oct-2022 00:24:02 America/New_York] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php on line 8
+[26-Oct-2022 00:24:04 America/New_York] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php on line 8
+[26-Oct-2022 00:24:09 America/New_York] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Feature/ExampleTest.php on line 8

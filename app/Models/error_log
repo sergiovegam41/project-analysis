@@ -1,0 +1,32 @@
+[26-Oct-2022 00:24:02 America/New_York] PHP Fatal error:  Uncaught Error: Class "Jenssegers\Mongodb\Eloquent\Model" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php on line 8
+[26-Oct-2022 00:24:03 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php on line 11
+[26-Oct-2022 00:24:03 America/New_York] PHP Fatal error:  Uncaught Error: Class "Jenssegers\Mongodb\Eloquent\Model" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php on line 8
+[26-Oct-2022 00:24:04 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php on line 11
+[26-Oct-2022 00:24:05 America/New_York] PHP Fatal error:  Uncaught Error: Class "Jenssegers\Mongodb\Eloquent\Model" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php on line 8
+[26-Oct-2022 00:24:06 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php on line 11
+[26-Oct-2022 00:24:10 America/New_York] PHP Fatal error:  Uncaught Error: Class "Jenssegers\Mongodb\Eloquent\Model" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/TestModel.php on line 8
+[26-Oct-2022 00:24:11 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Models/User.php on line 11

@@ -1,0 +1,16 @@
+[26-Oct-2022 00:23:59 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Console\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php on line 8
+[26-Oct-2022 00:24:00 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Console\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php on line 8
+[26-Oct-2022 00:24:03 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Console\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php on line 8
+[26-Oct-2022 00:24:07 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Console\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Console/Kernel.php on line 8

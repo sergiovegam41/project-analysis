@@ -1,0 +1,16 @@
+[26-Oct-2022 00:23:58 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php on line 7
+[26-Oct-2022 00:24:00 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php on line 7
+[26-Oct-2022 00:24:02 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php on line 7
+[26-Oct-2022 00:24:06 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/TestCase.php on line 7

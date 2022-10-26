@@ -1,0 +1,16 @@
+[26-Oct-2022 00:24:03 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Http\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php on line 7
+[26-Oct-2022 00:24:05 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Http\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php on line 7
+[26-Oct-2022 00:24:07 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Http\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php on line 7
+[26-Oct-2022 00:24:11 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Http\Kernel" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Kernel.php on line 7

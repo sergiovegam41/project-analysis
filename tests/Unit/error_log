@@ -1,0 +1,16 @@
+[26-Oct-2022 00:24:02 America/New_York] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php on line 7
+[26-Oct-2022 00:24:03 America/New_York] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php on line 7
+[26-Oct-2022 00:24:05 America/New_York] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php on line 7
+[26-Oct-2022 00:24:10 America/New_York] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/tests/Unit/ExampleTest.php on line 7
