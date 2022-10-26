@@ -78,8 +78,12 @@
 
 </body>
 
-<script>
-const url = 'http://project-analysis.test:81/api/data'
+<script type="module">
+
+    
+import { HOST } from './resourses/utils/js/ConfigApp.js';
+const url = HOST+'/data'
+
 const http = new XMLHttpRequest()
 
 http.open("GET", url)

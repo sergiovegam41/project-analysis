@@ -1,6 +1,7 @@
 
 
 export const HOST_NAME = `${window.location.protocol}//${window.location.host}/Analysis`;
+export const HOST = `${window.location.protocol}//${window.location.host}`;
 
 export const MENU_LIST = [
    {
