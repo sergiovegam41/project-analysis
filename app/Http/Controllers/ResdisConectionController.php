@@ -13,10 +13,10 @@ class ResdisConectionController extends Controller
     public function index(Request $request)
     {
 
-        Cache::put("data","");
-        $data = Cache::get("data");
+       Cache::put("data","");
+       $data = Cache::get("data");
 
-       $data = new TestModel;
+       $data = new TestModel();
        $data->data = "asd";
        $data->save();
 
