@@ -1,5 +1,3 @@
-
-
 export const HOST_NAME = `${window.location.protocol}//${window.location.host}/Analysis`;
 export const HOST = `${window.location.protocol}//${window.location.host}`;
 
@@ -8,6 +6,11 @@ export const MENU_LIST = [
        "name" : "Home",
        "icon" : "home-outline",
        "url" : HOST_NAME + '/'
+   },
+   {
+       "name" : "Estadios",
+       "icon" : "ticket-outline",
+       "url" : HOST_NAME + '/resourses/modules/Estadios'
    },
    {
        "name" : "Partidos",

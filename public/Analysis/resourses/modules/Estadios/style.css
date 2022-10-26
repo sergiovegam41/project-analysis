@@ -1,0 +1,35 @@
+.justifi{
+    /* background-color: red; */
+    padding: 20px;
+}
+.divisor-vertical{
+    width: 30px;
+    height: 80vh;
+    border-radius: 100px;
+    background-color:black ;
+    margin: 20px;
+}
+
+.home{
+    width: 80%;
+    display: flex;
+    /* background-color: red; */
+}
+
+
+.home .grafic{
+    flex: 3;
+    
+}
+
+.lateral{
+    justify-content: center;
+    align-items: center;
+}
+
+
+.home .lateral{
+    display: flex;
+    flex: 2;
+}
+

@@ -16,6 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
-Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
