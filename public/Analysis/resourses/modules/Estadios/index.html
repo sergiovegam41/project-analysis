@@ -29,16 +29,22 @@
         <body>
           <h1>Uso de estadios en el Futbol</h1>
 
-          
+          <div id="containLoad" class="containLoad">
+            <span id="loader" class="loader"></span>
+          </div>
+
           <div id="piechart_3d" style="width:100%; height: 90vh;">
           
-            <span id="loader" class="loader"></span>
+            
 
           </div>
+          
         </body>
       </html>
 
      </div>
+
+     
 
      <div class="lateral">
       
@@ -119,12 +125,24 @@ http.onreadystatechange = function(){
           console.log(valores[i] +" = "+keys[i]);
         }
 
-        dataAnalysis = finalData
-
-        document.getElementById('loader').remove()
 
         google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
+        
+
+
+        setTimeout(() => {
+
+         
+          dataAnalysis = finalData
+
+          document.getElementById('containLoad').remove()
+          google.charts.setOnLoadCallback(drawChart);
+
+         
+
+
+        }, 1000);
+  
 
     }
 }

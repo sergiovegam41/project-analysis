@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
 Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
+Route::get('/dataPartidos', [\App\Http\Controllers\Partidos::class, 'index']);
+
