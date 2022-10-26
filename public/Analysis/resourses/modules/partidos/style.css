@@ -32,11 +32,11 @@
 .home .containLoad{
    position: absolute;
    width: 100%;
-   height: 100%;
+   height: 100vh;
    display: flex;
    justify-content: center;
    align-items: center;
-   /* background-color: red; */
+   background-color: white;
 }
 
 .lateral{
