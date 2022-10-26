@@ -1,8 +1,0 @@
-[26-Oct-2022 00:24:08 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Auth\Middleware\Authenticate" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Middleware/Authenticate.php:7
-Stack trace:
-#0 {main}
-  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Middleware/Authenticate.php on line 7
-[26-Oct-2022 00:24:09 America/New_York] PHP Fatal error:  Uncaught Error: Class "Illuminate\Auth\Middleware\Authenticate" not found in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Middleware/Authenticate.php:7
-Stack trace:
-#0 {main}
-  thrown in /home/luloycfm/analysis-project.lulosys.com/project-analysis/app/Http/Middleware/Authenticate.php on line 7
