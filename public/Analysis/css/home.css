@@ -80,3 +80,7 @@ margin: 20px;
 
 }
 
+
+.resultados{
+    display: flex;
+}

@@ -22,4 +22,5 @@ Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
 Route::get('/dataPartidos', [\App\Http\Controllers\Partidos::class, 'index']);
 Route::get('/MapController', [\App\Http\Controllers\MapController::class, 'index']);
 Route::get('/jugadores', [\App\Http\Controllers\JugadoresController::class, 'index']);
+Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
 

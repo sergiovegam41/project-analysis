@@ -8,6 +8,7 @@
     <title>Home</title> 
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 
 </head>
@@ -15,10 +16,12 @@
     
     <side-bar> </side-bar>
 
+    
     <section class="home">
 
     
 
+        
 
         <h1  style="text-align: start;width: 100%;font-size: 40px;" class="text"> Resultados del Análisis  </h1>
         <br>    
@@ -27,50 +30,110 @@
         <br>
         <br>
 
-     
-        <div class="resultados">
+        
+        <div id="containLoad" class="containLoad">
+            <span id="loader" class="loader"></span>
+          </div>
+        <div class="resultados" style="width: 100%;">
 
 
-            <html>
-                <head>
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                    <script type="text/javascript">
-                    google.charts.load('current', {'packages':['corechart']});
-                    google.charts.setOnLoadCallback(drawVisualization);
-
-                    function drawVisualization() {
-                        // Some raw data (not necessarily accurate)
-                        var data = google.visualization.arrayToDataTable([
-                        ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-                        ['2004/05',  165,      938,         522,             998,           450,      614.6],
-                        ['2005/06',  135,      1120,        599,             1268,          288,      682],
-                        ['2006/07',  157,      1167,        587,             807,           397,      623],
-                        ['2007/08',  139,      1110,        615,             968,           215,      609.4],
-                        ['2008/09',  136,      691,         629,             1026,          366,      569.6]
-                        ]);
-
-                        var options = {
-                        title : 'Monthly Coffee Production by Country',
-                        vAxis: {title: 'Cups'},
-                        hAxis: {title: 'Month'},
-                        seriesType: 'bars',
-                        series: {5: {type: 'line'}}
-                        };
-
-                        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-                        chart.draw(data, options);
-                    }
-                    </script>
-                </head>
-                <body>
-                    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-                </body>
-            </html>
-
+                    <div id="chart_div" style="width: 50%; height: 500px;"></div>
+       
+                 
+          
+                    <div id="donutchart" style="width:50%; height: 40vh;">
+                    </div>
 
         </div>
-        <!-- <iframe width="768" height="432" src="" frameborder="0" scrolling="no" allowfullscreen></iframe> -->
-    </section>
+      
+
+  
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="module">
+        import { HOST } from './resourses/utils/js/ConfigApp.js';
+
+        var dataAnalysis = []
+        
+        // [
+        //    ['2008', 1,2,3,4,5,6,7,8,9,10,1.1],
+        //     ['2009', 0,0,0,0,0,0,0,0,9,10,2.3]
+        //    ]
+        const url = HOST+'/Barras'
+
+        const http = new XMLHttpRequest()
+
+        http.open("GET", url)
+        http.onreadystatechange = function(){
+
+            if(this.readyState == 4 && this.status == 200){
+
+                var resultado = JSON.parse(this.responseText)
+                console.log(resultado.Data)
+
+
+                let valores = Object.values(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+                let fechas = Object.keys(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+            
+                // console.log(fechas)
+
+                let finalData = [   
+                    ['Mes', 'La Liga', 'Indian Super league', "EFA Women's Euro", 'Champions League', "FA Women's Super League","Women's World Cup","FIFA World Cup","NWSL","UEFA Euro","Premier League", 'Promedio'],
+                ]
+
+
+                for(let i=0; i< fechas.length; i++){
+
+
+                    let promedioCal = promedio(Object.values( valores[i] ))
+                    finalData.push([fechas[i], ...Object.values( valores[i] ),promedioCal])
+                    // console.log(valores[i] +" = "+fechas[i]);
+                }
+
+                console.log(finalData)
+                
+                google.charts.load('current', {'packages':['corechart']});
+                
+                setTimeout(() => {
+
+                    dataAnalysis = finalData
+
+                    document.getElementById('containLoad').remove()
+                    google.charts.setOnLoadCallback(drawVisualization);
+
+                }, 1000);
+
+            }
+        }
+        http.send()
+        // console.log("SII")
+        // console.log(HOST)
+     
+
+        function drawVisualization() {
+            // Some raw data (not necessarily accurate)
+            var data = google.visualization.arrayToDataTable(dataAnalysis);
+
+            var options = {
+                title : 'Lisgas a lo largo del tiempo',
+                vAxis: {title: 'uso'},
+                hAxis: {title: 'Año'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}}
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+        function promedio(arr){
+            var sum = arr.reduce(function(a,b){
+                return a + b;
+            },0);
+
+            return (sum/arr.length);
+        }
+    </script>
 
     <script src="./resourses/utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
     
@@ -106,26 +169,80 @@
 
 
 
-</body>
 
 <script type="module">
 
-    
 import { HOST } from './resourses/utils/js/ConfigApp.js';
-const url = HOST+'/dataMap'
 
-const http = new XMLHttpRequest()
-
-http.open("GET", url)
-http.onreadystatechange = function(){
-
-    if(this.readyState == 4 && this.status == 200){
-        var resultado = JSON.parse(this.responseText)
-        console.log(resultado.Data)
+    
+    var dataAnalysis2 = [
+      ['Paises', ''],
+    ]
+    
+    function drawChart() {
+                  var data = google.visualization.arrayToDataTable(dataAnalysis2);
+    
+                  var options = {
+                    title: '',
+                    pieHole: 0.4,
+    
+                    // is3D: true,
+                  };
+    
+                  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                  chart.draw(data, options);
     }
-}
-http.send()
+    
+    const urlLigas = HOST+'/dataPartidos'
+    
+    const http = new XMLHttpRequest()
+    
+    http.open("GET", urlLigas)
+    http.onreadystatechange = function(){
+    
+        if(this.readyState == 4 && this.status == 200){
+            var resultado = JSON.parse(this.responseText)
+            console.log(resultado.Data)
+    
+    
+            let valores = Object.values(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+            let keys = Object.keys(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+           
+    
+            let finalData = [['Ligas', '']]
+    
+    
+            for(let i=0; i< valores.length; i++){
+              finalData.push([keys[i],valores[i]])
+              console.log(valores[i] +" = "+keys[i]);
+            }
+    
+    
+            google.charts.load("current", {packages:["corechart"]});
+            
+    
+    
+            setTimeout(() => {
+    
+             
+                dataAnalysis2 = finalData
+    
+            //   document.getElementById('containLoad').remove()
+              google.charts.setOnLoadCallback(drawChart);
+    
+             
+    
+    
+            }, 1000);
+      
+    
+        }
+    }
+    http.send()
+    
+    </script>
+</body>
 
-</script>
+
 
 </html>
