@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <side-bar> </side-bar>
+
+    <section class="home" >
+        <br>
+    <div class="def">
+    <h1>Integrantes</h1>
+
+
+    <div class="integrantes">
+
+            <div class="item">
+                <Img src="./../../assets/juan.jpg"></Img>
+                <br>
+                <p>Juan Barraza</p>
+                <strong><p>Product Owner</p></strong>
+                
+            </div>
+
+            <div class="item">
+                <Img src="./../../assets/sergio.png"></Img>
+                
+                <br>
+                <p>Sergio Vega</p>
+                <strong><p>Scrum Master</p></strong>
+                
+            </div>
+            
+            <div class="item">
+                <Img src="./../../assets/juntin.jpg"></Img>
+                <br>
+                <p>Justin Hernandez</p>
+                <strong><p>Developer</p></strong>
+                            
+            </div>       
+            
+            <div class="item">
+                <Img src="./../../assets/vane.jpg"></Img>
+                <br>
+                <p>Vanessa Villafañe</p>
+                <strong><p>Developer</p></strong>
+                
+            </div>
+            
+            <div class="item">
+                <Img src="./../../assets/dani.jpg"></Img>
+                <br>
+                <p>Daniel Espitia</p>
+                <strong><p>Developer</p></strong>
+                
+            </div>    
+
+            <div class="item">
+                <Img src="./../../assets/angeljpg.jpg"></Img>
+                <br>
+                <p>Angel Coavas</p>
+                <strong><p>Developer</p></strong>
+                
+            </div>
+             
+  
+
+            
+
+    </div>
+</div>
+
+    </section>
+
+
+    
+
+<script src="../../utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap');
+
+
+    .padre{
+        display: flex;
+        flex-direction: row;
+
+    }
+    .def{
+        margin: 20px;
+    }
+    *{
+        font-family: 'Fredoka', sans-serif;
+
+    }
+    .integrantes{
+        /* background: grey; */
+        margin: 20px;
+        display: flex;
+    }
+
+    img{
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 50px;
+     
+    }
+    
+    .item:hover{
+        transition: .25s;
+        transform: scale(1.0) translateY(-10px);
+        border: 1px solid black;
+    }
+
+    .item{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: .25s;
+        padding: 20px;
+        padding-bottom: 60px;
+        background-color: rgba(0,0, 0, .1);
+        min-width: 200px;
+        border-radius: 10px;
+    }
+
+h3 {
+    margin: 30px;
+    }
+
+.topo{
+    width: 600px;
+}
+
+</style>
+</html>

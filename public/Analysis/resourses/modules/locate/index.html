@@ -6,61 +6,161 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
-
+    
+  <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
+  
+
     <side-bar> </side-bar>
+
 
     <section class="home">
 
-        <div class="content">
-
-
-  <html>
-    <head>
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script type="text/javascript">
-        google.charts.load('current', {
-          'packages':['geochart'],
-        });
-        google.charts.setOnLoadCallback(drawRegionsMap);
-
-        function drawRegionsMap() {
-          var data = google.visualization.arrayToDataTable([
-            ['Country', 'Popularity'],
-            ['Germany', 200],
-            ['United States', 300],
-            ['Brazil', 400],
-            ['Canada', 500],
-            ['France', 600],
-            ['RU', 700]
-          ]);
-
-          var options = {};
-
-          var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-          chart.draw(data, options);
-        }
-      </script>
-    </head>
-    <body>
-      <div id="regions_div" style="width: 900px; height: 500px;"></div>
-    </body>
-  </html>
-        </div>
-
-    </section>
-
-    <script src="../../utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
+      
+      <div class="grafic">
+       
+ 
+       
+         <head>
+           <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+           <script type="text/javascript">
+            
+           </script>
+         </head>
+         <body>
+           
+           <div id="containLoad" class="containLoad">
+             <span id="loader" class="loader"></span>
+           </div>
+ 
+           <h1>Paises</h1>
+           <b>Este modulo se enfoca en analizar las ubucacion geografica de todas las competencias realizadas en todo el mundo con el objetivo de identidicar los paises mas involucrado con el futbol en base a nuestros datos.</b>
+ 
+           <br>
+           <br>
+           <br>
+           <br>
+           <div id="regions_div" style="width: 900px; height: 500px;"></div>
+           
+             
+ 
+           </div>
+           
+         </body>
+       
+ 
+      </div>
+ 
+      
+ 
+      <div class="lateral">
+       
+       <div class="divisor-vertical"></div>
+       <div class="justifi"> 
+         <h3>
+           Conclusión
+         </h3>
+         <br>
+         <P> 
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+         </P>
+         <br>  
+         <P> 
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+         </P>
+ 
+       </div>
+ 
+      </div>
+     </section>
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
 
 
+    <script src="../../utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="module">
+
+      var finalData = [['Paises', '']]
+
+      import { HOST } from './../../utils/js/ConfigApp.js';
+
+      const HOST_API = HOST
+
+      const url = HOST+'/MapController'
+
+      const http = new XMLHttpRequest()
+
+      http.open("GET", url)
+      http.onreadystatechange = function(){
+
+        if(this.readyState == 4 && this.status == 200){
+            var resultado = JSON.parse(this.responseText)
+            console.log(resultado.Data)
+
+            let valores = Object.values(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+            let keys = Object.keys(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+          
+           
+
+            for(let i=0; i< valores.length; i++){
+              finalData.push([keys[i],valores[i]])
+              // console.log(valores[i] +" = "+keys[i]);
+            }
+
+            console.log(finalData)
+            setTimeout(() => {
+              
+              google.charts.load('current', {
+                'packages':['geochart'],
+              });
+              google.charts.setOnLoadCallback(drawRegionsMap);
+              document.getElementById('containLoad').remove() 
+
+            }, 1000);
+
+
+        }
+      }
+
+      http.send() 
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable(finalData);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        // document.getElementById('containLoad').remove()
+
+        chart.draw(data, options);
+      }
+
+
+
+
+
+      // console.log(HOST_API)
+      
+
+ 
+
+      </script>
+ 
+
+
 </body>
 
 </html>
+

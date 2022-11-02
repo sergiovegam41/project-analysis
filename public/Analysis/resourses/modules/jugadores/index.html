@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -15,38 +15,65 @@
 
     <section class="home">
 
+      
+     <div class="grafic">
       <html>
+
+      
         <head>
           <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
           <script type="text/javascript">
-            google.charts.load("current", {packages:["corechart"]});
-            google.charts.setOnLoadCallback(drawChart);
-            function drawChart() {
-              var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     11],
-                ['Eat',      2],
-                ['Commute',  2],
-                ['Watch TV', 2],
-                ['Sleep',    7]
-              ]);
-
-              var options = {
-                title: 'My Daily Activities',
-                pieHole: 0.4,
-              };
-
-              var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-              chart.draw(data, options);
-            }
+           
           </script>
         </head>
         <body>
-          <div id="donutchart" style="width: 900px; height: 500px;"></div>
+          
+          <div id="containLoad" class="containLoad">
+            <span id="loader" class="loader"></span>
+          </div>
+
+          <h1>Managers</h1>
+          <b>Este modulo se enfoca en analizar la particimacion de los managers del equipo local de cada partio con el objetivo de identificar cual es el que mas destaca entre ellos.</b>
+
+
+          <div id="piechart_3d" style="width:100%; height: 90vh;">
+          
+            
+
+          </div>
+          
         </body>
       </html>
 
+     </div>
+
+     
+
+     <div class="lateral">
+      
+      <div class="divisor-vertical"></div>
+      <div class="justifi"> 
+        <h3>
+          Conclusión
+        </h3>
+        <br>
+        <P> 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+        </P>
+        <br>  
+        <P> 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repellat ab optio minima dolor esse, quod perferendis laboriosam, facere iure eius quo quae at quibusdam maxime commodi doloribus. Ab, necessitatibus.
+        </P>
+
+      </div>
+
+     </div>
     </section>
+
 
     <script src="../../utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
 
@@ -57,3 +84,64 @@
 </body>
 
 </html>
+<script type="module">
+
+import { HOST } from './../../utils/js/ConfigApp.js';
+
+var dataAnalysis = [
+  ['Paises', ''],
+]
+
+function drawChart() {
+              var data = google.visualization.arrayToDataTable(dataAnalysis);
+
+              var options = {
+                title: '',
+                is3D: true,
+              };
+
+              var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+              chart.draw(data, options);
+}
+
+const url = HOST+'/jugadores'
+
+const http = new XMLHttpRequest()
+
+http.open("GET", url)
+http.onreadystatechange = function(){
+
+    if(this.readyState == 4 && this.status == 200){
+        var resultado = JSON.parse(this.responseText)
+        console.log(resultado.Data)
+
+
+        let valores = Object.values(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+        let keys = Object.keys(resultado.Data); // valores = ["Scott", "Negro", true, 5];
+       
+
+        let finalData = [['Paises', '']]
+
+
+        for(let i=0; i< valores.length; i++){
+          finalData.push([keys[i],valores[i]])
+          console.log(valores[i] +" = "+keys[i]);
+        }
+
+        google.charts.load("current", {packages:["corechart"]});
+        
+        setTimeout(() => {
+
+          dataAnalysis = finalData
+
+          document.getElementById('containLoad').remove()
+          google.charts.setOnLoadCallback(drawChart);
+
+        }, 1000);
+  
+
+    }
+}
+http.send()
+
+</script>

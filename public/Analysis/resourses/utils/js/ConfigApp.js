@@ -13,22 +13,17 @@ export const MENU_LIST = [
        "url" : HOST_NAME + '/resourses/modules/Estadios'
    },
    {
-       "name" : "Partidos",
-       "icon" : "football-outline",
-       "url" : HOST_NAME + '/resourses/modules/partidos'
+       "name" : "Ligas",
+       "icon" : "trophy-outline",
+       "url" : HOST_NAME + '/resourses/modules/Ligas'
    },
    {
-       "name" : "Jugadores",
+       "name" : "Managers",
        "icon" : "accessibility-outline",
        "url" : HOST_NAME + '/resourses/modules/jugadores'
    },
    {
-       "name" : "Tiempo",
-       "icon" : "calendar-number-outline",
-       "url" : HOST_NAME + '/resourses/modules/tiempo'
-   },
-   {
-       "name" : "Mapa",
+       "name" : "Paises",
        "icon" : "map-outline",
        "url" : HOST_NAME + '/resourses/modules/locate'
    },
@@ -37,10 +32,16 @@ export const MENU_LIST = [
        "icon" : "options-outline",
        "url" : HOST_NAME + '/resourses/modules/filtros'
    },
-//    {
-//        "name" : "Acerca de",
-//        "icon" : "information-circle-outline",
-//        "url"  : HOST_NAME + '/ProyectoElectiva/resourses/modules/acerca'
-//     },
+   {
+       "name" : "Integrantes",
+       "icon" : "people-outline",
+       "url" : HOST_NAME + '/resourses/modules/integrantes'
+    },
+    {
+        "name" : "Documentación",
+        "icon" : "clipboard-outline",
+        "url" : HOST_NAME + '/resourses/modules/filtros'
+    },
+
 
 ];

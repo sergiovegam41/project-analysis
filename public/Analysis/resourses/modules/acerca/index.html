@@ -6,47 +6,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
+    <link rel="stylesheet" href="index.css">
 
 </head>
 <body>
 
-    <side-bar> </side-bar>
+  <side-bar> </side-bar>
 
-    <section class="home">
+  <section class="home">
 
-        <html>
-            <head>
-              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-              <script type="text/javascript">
-                google.charts.load("current", {packages:["corechart"]});
-                google.charts.setOnLoadCallback(drawChart);
-                function drawChart() {
-                  var data = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Work',     11],
-                    ['Eat',      2],
-                    ['Commute',  2],
-                    ['Watch TV', 2],
-                    ['Sleep',    7]
-                  ]);
+  
 
-                  var options = {
-                    title: 'My Daily Activities',
-                    is3D: true,
-                  };
 
-                  var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                  chart.draw(data, options);
-                }
-              </script>
-            </head>
-            <body>
-              <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-            </body>
-          </html>
+      <h1  style="text-align: start;width: 100%;font-size: 40px;" class="text"> Acerca de la solucion  </h1>
+      <br>    
+      <b > <b id="saludo"></b>  Este modulo pretende exponer y justificar el diseño de la solucion tecnica creada para este problema</b>        
 
-    </section>
+      <br>
+      <br>
+
+   
+      <div class="solucion">
+          
+         
+          <!-- <br> -->
+   
+  
+         
+          <!-- <br> -->
+          
+          <div  class="board">
+              <h2 style="text-align: start;width: 100%;">Arquitectura</h2>
+              <br>
+              <iframe  width="100%" height="632" src="https://miro.com/app/live-embed/uXjVPLndMU8=/?moveToViewport=-947,-219,1775,888&embedId=357866847762" frameborder="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+
+           
+          <br>
+
+          <div class="def">
+              <h2>Componentes</h2>
+              <br>
+                  <b> <b style="padding-left: 0px;" > para diseñar esta solucion web fue necesario implementar algunas componentes como:</b>  </b>
+                  <br>  
+                  <br>  
+                  <li> Bases de datos</li>           
+                  <b > - usada con el propósito de almacenar y mantener la disponibilidad y/o accesibilidad de los datos usados para esta solucion. </b>
+                  <br>
+                  <br>
+                  <li style="padding-left: 0px;" >Cache</li>           
+                  <b > - usada con el propósito obtener los resultados del analisis de forma mas rapida y accessible</b>
+
+                  <br>
+                  <br>
+                  <li style="padding-left: 0px;" >Apis</li>           
+                  <b > - creamos apis publicas para obtener los resultados en cahces que seran consumidos por el front-end  </b>
+
+                  <br>
+                  <br>
+                  <li style="padding-left: 0px;" >Jobs</li>           
+                  <b > - este se encargara de procesar, analizar y almacenar los datos en cache cada 30 minutos, con el objetivo de mantener los resultados del analisis actualizados.   </b>
+
+                  <br>
+                  
+
+      
+          </div>
+
+      </div>
+      <!-- <iframe width="768" height="432" src="" frameborder="0" scrolling="no" allowfullscreen></iframe> -->
+  </section>
+
 
     <script src="../../utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
 

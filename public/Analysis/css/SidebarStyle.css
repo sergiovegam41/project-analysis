@@ -5,7 +5,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+ /* cursor: url(http://project-analysis.test:81/Analysis/resourses/assets/point.png), auto; */   
 }
+
 
 hr{
     background-color: #707070;
@@ -79,6 +81,7 @@ body.dark{
     display: flex;
     align-items: center;
     margin-top: 10px;
+
 }
 
 
@@ -272,6 +275,7 @@ hr{
 
 .sidebar li a:hover{
     background-color: var(--primary-color);
+    cursor: pointer;
 }
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
@@ -367,6 +371,7 @@ body.dark .switch::before{
 
 
 
+
 .loader {
     width: 48px;
     height: 48px;
@@ -397,3 +402,4 @@ body.dark .switch::before{
       transform: rotate(360deg);
     }
   } 
+
