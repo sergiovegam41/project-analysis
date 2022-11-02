@@ -48,7 +48,7 @@ class EstadiosBarras extends Command
            if(intval($fecha)>= 2018){
                try {
 
-                   $this->info( $fecha );
+//                   $this->info( $fecha );
                    $BARRAS[$fecha];
 
                    $exist = true;
