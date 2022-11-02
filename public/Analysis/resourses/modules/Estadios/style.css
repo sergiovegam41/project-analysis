@@ -1,15 +1,16 @@
 .justifi{
     /* background-color: red; */
     padding: 20px;
+    height: 100%;
+    padding-top: 80px;
 }
 .divisor-vertical{
-    width: 30px;
+    width: 15px;
     height: 80vh;
     border-radius: 100px;
     background-color:black ;
     margin: 20px;
 }
-
 .home{
     width: 80%;
     display: flex;

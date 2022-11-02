@@ -27,11 +27,11 @@ export const MENU_LIST = [
        "icon" : "map-outline",
        "url" : HOST_NAME + '/resourses/modules/locate'
    },
-   {
-       "name" : "Filtros",
-       "icon" : "options-outline",
-       "url" : HOST_NAME + '/resourses/modules/filtros'
-   },
+    //    {
+    //        "name" : "Filtros",
+    //        "icon" : "options-outline",
+    //        "url" : HOST_NAME + '/resourses/modules/filtros'
+    //    },
    {
        "name" : "Integrantes",
        "icon" : "people-outline",
@@ -40,7 +40,7 @@ export const MENU_LIST = [
     {
         "name" : "Documentación",
         "icon" : "clipboard-outline",
-        "url" : HOST_NAME + '/resourses/modules/filtros'
+        "url" : HOST_NAME + '/resourses/modules/doc'
     },
 
 
