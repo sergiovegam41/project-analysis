@@ -36,8 +36,7 @@ Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
 Route::get('/storageImage', function () {
 
     $request = Request();
-//    dd($request->idName);
-    $ruta = storageImage($request->image, 'fotos/');
+    $ruta = storageImage($request->image, '');
     return $ruta;
 });
 
