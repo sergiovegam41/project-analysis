@@ -40,7 +40,7 @@ function storageImage($imagenBase64, $path=null) {
         $image  = base64_decode($imagenBase64);
         $path =  ($path ? $path . '/' : '');
         \Illuminate\Support\Facades\Storage::disk('local')->put( '../../'.$path.$imageName,$image );
-        $url = '/storage'.$path.$imageName;
+        $url = $path.$imageName;
         return $url;
 
     }
