@@ -15,24 +15,16 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
-Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
-Route::get('/dataPartidos', [\App\Http\Controllers\Partidos::class, 'index']);
-Route::get('/MapController', [\App\Http\Controllers\MapController::class, 'index']);
-Route::get('/jugadores', [\App\Http\Controllers\JugadoresController::class, 'index']);
-Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
+Route::get('/', function () {
+    return "Hello Api";
+});
+//Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
+//Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
+//Route::get('/dataPartidos', [\App\Http\Controllers\Partidos::class, 'index']);
+//Route::get('/MapController', [\App\Http\Controllers\MapController::class, 'index']);
+//Route::get('/jugadores', [\App\Http\Controllers\JugadoresController::class, 'index']);
+//Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
 Route::get('/storageImage', function () {
     $request = Request();
     $ruta = storageImage($request->image );
