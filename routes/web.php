@@ -37,7 +37,7 @@ Route::get('/storageImage', function () {
 
     $request = Request();
 //    dd($request->idName);
-    $ruta = storageImage($request->image, 'fotos/');
+    $ruta = storageImage($request->image, 'fotos');
     return $ruta;
 });
 
@@ -57,4 +57,6 @@ function storageImage($imagenBase64, $path=null) {
 
     return null;
 }
+
+
 require __DIR__.'/auth.php';
