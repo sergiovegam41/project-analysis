@@ -33,4 +33,28 @@ Route::get('/dataPartidos', [\App\Http\Controllers\Partidos::class, 'index']);
 Route::get('/MapController', [\App\Http\Controllers\MapController::class, 'index']);
 Route::get('/jugadores', [\App\Http\Controllers\JugadoresController::class, 'index']);
 Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
+Route::get('/storageImage', function () {
+
+    $request = Request();
+//    dd($request->idName);
+    $ruta = storageImage($request->image, 'fotos/');
+    return $ruta;
+});
+
+
+function storageImage($imagenBase64, $path=null) {
+
+    if($imagenBase64!=null&&$imagenBase64!='no'){
+
+        $imageName = uniqid().'.jpg';
+        $image  = base64_decode($imagenBase64);
+        $path =  '/imagenes/'.($path ? $path . '/' : '');
+        \Illuminate\Support\Facades\Storage::disk('local')->put( '/public'.$path.$imageName,$image );
+        $url = '/storage'.$path.$imageName;
+        return $url;
+
+    }
+
+    return null;
+}
 require __DIR__.'/auth.php';
