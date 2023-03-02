@@ -17,7 +17,7 @@ use Inertia\Inertia;
 
 
 Route::get('/', function () {
-    return redirect("/analysis");
+    return redirect("/Analysis");
 });
 //Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
 //Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);

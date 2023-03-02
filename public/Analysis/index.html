@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title> 
+    <title>Home</title>
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -13,24 +13,24 @@
 
 </head>
 <body>
-    
+
     <side-bar> </side-bar>
 
-    
+
     <section class="home">
 
-    
 
-        
+
+
 
         <h1  style="text-align: start;width: 100%;font-size: 40px;" class="text"> Resultados del Análisis  </h1>
-        <br>    
-        <b > <b id="saludo"></b>  querido Usuario, esta solucion web pretende exponer los resultados del analisis en base a <a href="https://github.com/statsbomb/open-data">datos</a> deportivos, mas concretamente del futbol, ademas cabe mencionar que los datos fueron recolectados deste el año 2018 hasta el año 2022.</b>        
+        <br>
+        <b > <b id="saludo"></b>  querido Usuario, esta solucion web pretende exponer los resultados del analisis en base a <a href="https://github.com/statsbomb/open-data">datos</a> deportivos, mas concretamente del futbol, ademas cabe mencionar que los datos fueron recolectados deste el año 2018 hasta el año 2022.</b>
 
         <br>
         <br>
 
-        
+
         <div id="containLoad" class="containLoad">
             <span id="loader" class="loader"></span>
           </div>
@@ -38,23 +38,23 @@
 
 
                     <div id="chart_div" style="width: 50%; height: 500px;"></div>
-       
-                 
-          
+
+
+
                     <div id="donutchart" style="width:50%; height: 40vh;">
                     </div>
 
         </div>
-      
 
-  
+
+
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="module">
         import { HOST } from './resourses/utils/js/ConfigApp.js';
 
         var dataAnalysis = []
-        
+
         // [
         //    ['2008', 1,2,3,4,5,6,7,8,9,10,1.1],
         //     ['2009', 0,0,0,0,0,0,0,0,9,10,2.3]
@@ -74,10 +74,10 @@
 
                 let valores = Object.values(resultado.Data); // valores = ["Scott", "Negro", true, 5];
                 let fechas = Object.keys(resultado.Data); // valores = ["Scott", "Negro", true, 5];
-            
+
                 // console.log(fechas)
 
-                let finalData = [   
+                let finalData = [
                     ['Mes', 'La Liga', 'Indian Super league', "EFA Women's Euro", 'Champions League', "FA Women's Super League","Women's World Cup","FIFA World Cup","NWSL","UEFA Euro","Premier League", 'Promedio'],
                 ]
 
@@ -91,13 +91,12 @@
                 }
 
                 console.log(finalData)
-                
+
                 google.charts.load('current', {'packages':['corechart']});
-                
+
                 setTimeout(() => {
 
-                    dataAnalysis = finalData
-
+                    dataAnalysis = finalData;
                     document.getElementById('containLoad').remove()
                     google.charts.setOnLoadCallback(drawVisualization);
 
@@ -108,7 +107,7 @@
         http.send()
         // console.log("SII")
         // console.log(HOST)
-     
+
 
         function drawVisualization() {
             // Some raw data (not necessarily accurate)
@@ -136,13 +135,13 @@
     </script>
 
     <script src="./resourses/utils/js/sidebar/SidebarScrtipt.js" type="module"></script>
-    
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
     <script>
 
         let name = '';
-        
+
 
             let day = new Date()
 
@@ -164,7 +163,7 @@
             }
 
 
-   
+
     </script>
 
 
@@ -174,72 +173,72 @@
 
 import { HOST } from './resourses/utils/js/ConfigApp.js';
 
-    
+
     var dataAnalysis2 = [
       ['Paises', ''],
     ]
-    
+
     function drawChart() {
                   var data = google.visualization.arrayToDataTable(dataAnalysis2);
-    
+
                   var options = {
                     title: '',
                     pieHole: 0.4,
-    
+
                     // is3D: true,
                   };
-    
+
                   var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
                   chart.draw(data, options);
     }
-    
+
     const urlLigas = HOST+'/dataPartidos'
-    
+
     const http = new XMLHttpRequest()
-    
+
     http.open("GET", urlLigas)
     http.onreadystatechange = function(){
-    
+
         if(this.readyState == 4 && this.status == 200){
             var resultado = JSON.parse(this.responseText)
             console.log(resultado.Data)
-    
-    
+
+
             let valores = Object.values(resultado.Data); // valores = ["Scott", "Negro", true, 5];
             let keys = Object.keys(resultado.Data); // valores = ["Scott", "Negro", true, 5];
-           
-    
+
+
             let finalData = [['Ligas', '']]
-    
-    
+
+
             for(let i=0; i< valores.length; i++){
               finalData.push([keys[i],valores[i]])
               console.log(valores[i] +" = "+keys[i]);
             }
-    
-    
+
+
             google.charts.load("current", {packages:["corechart"]});
-            
-    
-    
+
+
+
             setTimeout(() => {
-    
-             
+
+
                 dataAnalysis2 = finalData
-    
+
             //   document.getElementById('containLoad').remove()
               google.charts.setOnLoadCallback(drawChart);
-    
-             
-    
-    
+
+
+
+
             }, 1000);
-      
-    
+
+
         }
     }
     http.send()
-    
+
     </script>
 </body>
 
