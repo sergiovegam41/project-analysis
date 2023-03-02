@@ -17,7 +17,7 @@ use Inertia\Inertia;
 
 
 Route::get('/', function () {
-    return "Hello Api";
+    return redirect("/analysis");
 });
 //Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
 //Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
@@ -32,20 +32,13 @@ Route::get('/storageImage', function () {
 });
 
 
-function storageImage($imagenBase64, $path=null) {
 
-    if($imagenBase64!=null&&$imagenBase64!='no'){
 
-        $imageName = uniqid().'.jpg';
-        $image  = base64_decode($imagenBase64);
-        $path =  ($path ? $path . '/' : '');
-        \Illuminate\Support\Facades\Storage::disk('local')->put( 'public/'.$imageName,$image );
-        $url = $path.$imageName;
-        return $url;
-
-    }
-
-    return null;
-}
+Route::get('/dataMatches', [\App\Http\Controllers\GetDataMatches::class, 'index']);
+Route::get('/dataMap', [\App\Http\Controllers\GetDataMap::class, 'index']);
+Route::get('/dataPartidos', [\App\Http\Controllers\Partidos::class, 'index']);
+Route::get('/MapController', [\App\Http\Controllers\MapController::class, 'index']);
+Route::get('/jugadores', [\App\Http\Controllers\JugadoresController::class, 'index']);
+Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
 
 

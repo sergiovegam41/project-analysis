@@ -13,7 +13,9 @@ class AnalyzeMatches extends Command
      * The name and signature of the console command.
      *
      * @var string
+
      */
+
     protected $signature = 'Analize:Matches';
 
     /**
@@ -61,8 +63,16 @@ class AnalyzeMatches extends Command
 
         }
 
+
+//        foreach ($ESTADIOS as $estadio => $valor) {
+//            echo $valor."\n";
+//            if ($valor <= 4) {
+//                unset($ESTADIOS[$estadio]);
+//            }
+//        }
+
         Cache::put("ESTADIOS",$ESTADIOS);
-//            $this->info($ESTADIOS);
+
 
 
         $this->info(count($data));
