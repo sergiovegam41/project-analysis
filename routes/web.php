@@ -25,11 +25,6 @@ Route::get('/', function () {
 //Route::get('/MapController', [\App\Http\Controllers\MapController::class, 'index']);
 //Route::get('/jugadores', [\App\Http\Controllers\JugadoresController::class, 'index']);
 //Route::get('/Barras', [\App\Http\Controllers\BarrasController::class, 'index']);
-Route::get('/storageImage', function () {
-    $request = Request();
-    $ruta = storageImage($request->image );
-    return $ruta;
-});
 
 
 
