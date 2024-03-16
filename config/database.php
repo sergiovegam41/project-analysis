@@ -87,7 +87,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => 'mongodb+srv://Sergio:Dr#m2020.@cluster0.ztbdwxd.mongodb.net/?retryWrites=true&w=majority',
+            'dsn' => 'mongodb+srv://Sergio-All:OwSA0rjmhJKtyE7M@cluster0.ztbdwxd.mongodb.net/?retryWrites=true&w=majority',
             'database' => 'Analysis',
         ],
 //        'mongodb' => [
