@@ -1,0 +1,4 @@
+[05-Oct-2025 15:42:09 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/tranyfqix/project-analysis.tranazula.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tranyfqix/project-analysis.tranazula.com/bootstrap/app.php on line 14

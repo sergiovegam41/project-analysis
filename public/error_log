@@ -1,0 +1,2 @@
+[05-Oct-2025 15:42:04 UTC] PHP Warning:  require(/home/tranyfqix/project-analysis.tranazula.com/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home/tranyfqix/project-analysis.tranazula.com/public/index.php on line 34
+[05-Oct-2025 15:42:04 UTC] PHP Fatal error:  require(): Failed opening required '/home/tranyfqix/project-analysis.tranazula.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/tranyfqix/project-analysis.tranazula.com/public/index.php on line 34
