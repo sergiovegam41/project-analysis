@@ -1,28 +1,28 @@
 services:
-  setup:
-    build:
-      context: .
-      dockerfile: dockerfile.prod
-    working_dir: /var/www/html
-    user: "0:0"
-    command: |
-      sh -c "
-      echo '=== Starting Laravel Setup ===' &&
-      chown -R www-data:www-data /var/www/html &&
-      chmod -R 755 /var/www/html &&
-      mkdir -p /var/www/html/storage/{logs,framework/{sessions,views,cache}} &&
-      mkdir -p /var/www/html/bootstrap/cache &&
-      chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache &&
-      echo 'Running composer install as www-data...' &&
-      su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist' &&
-      echo 'Generating application key...' &&
-      su www-data -s /bin/sh -c 'php artisan key:generate --force' &&
-      echo 'Running migrations...' &&
-      su www-data -s /bin/sh -c 'php artisan migrate --force' &&
-      echo '=== Laravel Setup Completed Successfully ==='
-      "
-    networks:
-      - global-network
+  # setup:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile.prod
+  #   working_dir: /var/www/html
+  #   user: "0:0"
+  #   command: |
+  #     sh -c "
+  #     echo '=== Starting Laravel Setup ===' &&
+  #     chown -R www-data:www-data /var/www/html &&
+  #     chmod -R 755 /var/www/html &&
+  #     mkdir -p /var/www/html/storage/{logs,framework/{sessions,views,cache}} &&
+  #     mkdir -p /var/www/html/bootstrap/cache &&
+  #     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache &&
+  #     echo 'Running composer install as www-data...' &&
+  #     su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist' &&
+  #     echo 'Generating application key...' &&
+  #     su www-data -s /bin/sh -c 'php artisan key:generate --force' &&
+  #     echo 'Running migrations...' &&
+  #     su www-data -s /bin/sh -c 'php artisan migrate --force' &&
+  #     echo '=== Laravel Setup Completed Successfully ==='
+  #     "
+  #   networks:
+  #     - global-network
 
   app:
     build:
