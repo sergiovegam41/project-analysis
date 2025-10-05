@@ -3,26 +3,22 @@ services:
     build:
       context: .
       dockerfile: dockerfile.prod
-    volumes:
-      - .:/var/www/html
     working_dir: /var/www/html
     user: "0:0"
     command: |
       sh -c "
       echo '=== Starting Laravel Setup ===' &&
-      echo 'Setting permissions...' &&
       chown -R www-data:www-data /var/www/html &&
       chmod -R 755 /var/www/html &&
       mkdir -p /var/www/html/storage/{logs,framework/{sessions,views,cache}} &&
       mkdir -p /var/www/html/bootstrap/cache &&
-      mkdir -p /var/www/html/vendor &&
       chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache &&
-      chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/vendor &&
-      echo 'Configuring git...' &&
-      git config --global --add safe.directory /var/www/html &&
-      git config --global --add safe.directory '*' &&
       echo 'Running composer install as www-data...' &&
-      su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist --verbose' &&
+      su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist' &&
+      echo 'Generating application key...' &&
+      su www-data -s /bin/sh -c 'php artisan key:generate --force' &&
+      echo 'Running migrations...' &&
+      su www-data -s /bin/sh -c 'php artisan migrate --force' &&
       echo '=== Laravel Setup Completed Successfully ==='
       "
     networks:
@@ -32,15 +28,21 @@ services:
     build:
       context: .
       dockerfile: dockerfile.prod
-    volumes:
-      - .:/var/www/html
     working_dir: /var/www/html
     container_name: dservices-app
     networks:
       - global-network
     user: "www-data:www-data"
     environment:
-      PHP_IDE_CONFIG: "serverName=Docker"
+      APP_ENV: production
+      APP_DEBUG: false
+      APP_KEY: ${APP_KEY}
+      DB_CONNECTION: mysql
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -53,8 +55,8 @@ services:
   webserver:
     image: nginx:alpine
     volumes:
-      - .:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./public:/var/www/html/public
     ports:
       - "8080:80"
     depends_on:
@@ -67,6 +69,3 @@ services:
 networks:
   global-network:
     external: true
-
-volumes:
-  db_data:
