@@ -43,9 +43,9 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
-    depends_on:
-      setup:
-        condition: service_completed_successfully
+    # depends_on:
+    #   setup:
+    #     condition: service_completed_successfully
     command: |
       sh -c "
       echo 'Starting PHP-FPM...' &&
