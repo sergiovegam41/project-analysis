@@ -1,0 +1,50 @@
+FROM php:7.4-fpm
+
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    libssl-dev \
+    pkg-config \
+    openssl \
+    sudo \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql zip bcmath \
+    && pecl install mongodb-1.17.0 \
+    && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
+    && docker-php-ext-enable mongodb \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Configure git for safe directories (global setting)
+RUN git config --global --add safe.directory '*' \
+    && git config --global --add safe.directory /var/www/html
+
+# Create necessary directories with proper ownership
+RUN mkdir -p storage/{logs,framework/{sessions,views,cache}} bootstrap/cache vendor \
+    && chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 storage bootstrap/cache
+
+# Copy application code
+COPY . .
+
+# Fix permissions after copying
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
+    && chmod -R 775 storage bootstrap/cache
+
+# Expose port 9000 for PHP-FPM
+EXPOSE 9000
+
+# Default command
+CMD ["php-fpm"]
