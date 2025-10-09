@@ -1,28 +1,39 @@
 services:
-  # setup:
-  #   build:
-  #     context: .
-  #     dockerfile: dockerfile.prod
-  #   working_dir: /var/www/html
-  #   user: "0:0"
-  #   command: |
-  #     sh -c "
-  #     echo '=== Starting Laravel Setup ===' &&
-  #     chown -R www-data:www-data /var/www/html &&
-  #     chmod -R 755 /var/www/html &&
-  #     mkdir -p /var/www/html/storage/{logs,framework/{sessions,views,cache}} &&
-  #     mkdir -p /var/www/html/bootstrap/cache &&
-  #     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache &&
-  #     echo 'Running composer install as www-data...' &&
-  #     su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist' &&
-  #     echo 'Generating application key...' &&
-  #     su www-data -s /bin/sh -c 'php artisan key:generate --force' &&
-  #     echo 'Running migrations...' &&
-  #     su www-data -s /bin/sh -c 'php artisan migrate --force' &&
-  #     echo '=== Laravel Setup Completed Successfully ==='
-  #     "
-  #   networks:
-  #     - global-network
+  setup:
+    build:
+      context: .
+      dockerfile: dockerfile.prod
+    working_dir: /var/www/html
+    user: "0:0"
+    container_name: dservices-setup
+    networks:
+      - global-network
+    environment:
+      APP_ENV: production
+      APP_DEBUG: false
+      APP_KEY: ${APP_KEY}
+      DB_CONNECTION: mysql
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    command: |
+      sh -c "
+      echo '=== Starting Laravel Setup ===' &&
+      chown -R www-data:www-data /var/www/html &&
+      chmod -R 755 /var/www/html &&
+      mkdir -p /var/www/html/storage/{logs,framework/{sessions,views,cache}} &&
+      mkdir -p /var/www/html/bootstrap/cache &&
+      chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache &&
+      echo 'Running composer install as www-data...' &&
+      su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist' &&
+      echo 'Generating application key...' &&
+      su www-data -s /bin/sh -c 'php artisan key:generate --force' &&
+      echo 'Running migrations...' &&
+      su www-data -s /bin/sh -c 'php artisan migrate --force' &&
+      echo '=== Laravel Setup Completed Successfully ==='
+      "
 
   app:
     build:
@@ -43,9 +54,9 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
-    # depends_on:
-    #   setup:
-    #     condition: service_completed_successfully
+    depends_on:
+      setup:
+        condition: service_completed_successfully
     command: |
       sh -c "
       echo 'Starting PHP-FPM...' &&
