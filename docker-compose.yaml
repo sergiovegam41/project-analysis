@@ -26,8 +26,6 @@ services:
       mkdir -p /var/www/html/storage/{logs,framework/{sessions,views,cache}} &&
       mkdir -p /var/www/html/bootstrap/cache &&
       chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache &&
-      echo 'Running composer install as www-data...' &&
-      su www-data -s /bin/sh -c 'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist' &&
       echo 'Generating application key...' &&
       su www-data -s /bin/sh -c 'php artisan key:generate --force' &&
       echo 'Running migrations...' &&
